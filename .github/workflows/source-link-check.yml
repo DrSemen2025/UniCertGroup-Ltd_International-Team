@@ -25,7 +25,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/regulatory-source-status.json
           if ! git diff --cached --quiet; then
-            git commit -m "Update regulatory source status [skip ci]"
+            git commit -m "Update regulatory source status"
             git push
           fi
       - name: Flag unavailable sources
