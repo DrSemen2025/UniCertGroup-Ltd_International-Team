@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-07-20T13:23:32Z",
+  "checked_at": "2026-07-20T13:41:12Z",
   "legal_reviewed_at": "2026-07-20",
   "method": "Automated HTTP availability check. This does not verify legal meaning, applicability, completeness, or whether a revision changes an obligation.",
   "summary": {
@@ -15,7 +15,7 @@
       "final_url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng",
       "http_status": 202,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU Product Liability Directive — legal text",
@@ -23,7 +23,7 @@
       "final_url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng",
       "http_status": 202,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU Machinery Regulation — legal text",
@@ -31,7 +31,7 @@
       "final_url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng",
       "http_status": 202,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU CRA reporting guidance",
@@ -39,7 +39,7 @@
       "final_url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU Cyber Resilience Act policy page",
@@ -47,7 +47,7 @@
       "final_url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU CBAM official portal",
@@ -55,7 +55,7 @@
       "final_url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU AI Act implementation timeline",
@@ -63,7 +63,7 @@
       "final_url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "EU Machinery policy page",
@@ -71,7 +71,7 @@
       "final_url": "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "Germany CBAM definitive regime",
@@ -79,7 +79,7 @@
       "final_url": "https://www.dehst.de/EN/Topics/CBAM/CBAM-definitive-regime-2026/cbam-definitive-regime-2026_node.html",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "UK product marking by sector",
@@ -87,7 +87,7 @@
       "final_url": "https://www.gov.uk/government/publications/product-regulations-by-sector-and-current-approaches-to-product-marking-ukca-and-ce-regimes",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "UK product safety framework",
@@ -95,7 +95,7 @@
       "final_url": "https://www.gov.uk/government/consultations/product-regulation-the-uks-new-product-safety-framework/the-uks-new-product-safety-framework",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     },
     {
       "name": "China CCC implementation rules — April 2026",
@@ -103,7 +103,7 @@
       "final_url": "https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/ssgz/art/2026/art_5261f654e02d45edaf0805fb268c9fc9.html",
       "http_status": 200,
       "status": "available",
-      "checked_at": "2026-07-20T13:23:32Z"
+      "checked_at": "2026-07-20T13:41:12Z"
     }
   ]
 }
