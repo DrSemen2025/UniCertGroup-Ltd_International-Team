@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-07-20T13:23:32Z",
+  "legal_reviewed_at": "2026-07-20",
+  "method": "Automated HTTP availability check. This does not verify legal meaning, applicability, completeness, or whether a revision changes an obligation.",
+  "summary": {
+    "available": 12,
+    "manual_review": 0,
+    "unavailable": 0
+  },
+  "sources": [
+    {
+      "name": "EU Cyber Resilience Act — legal text",
+      "url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng",
+      "final_url": "https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng",
+      "http_status": 202,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU Product Liability Directive — legal text",
+      "url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng",
+      "final_url": "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng",
+      "http_status": 202,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU Machinery Regulation — legal text",
+      "url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng",
+      "final_url": "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng",
+      "http_status": 202,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU CRA reporting guidance",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting",
+      "final_url": "https://digital-strategy.ec.europa.eu/en/policies/cra-reporting",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU Cyber Resilience Act policy page",
+      "url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
+      "final_url": "https://digital-strategy.ec.europa.eu/en/policies/cyber-resilience-act",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU CBAM official portal",
+      "url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
+      "final_url": "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU AI Act implementation timeline",
+      "url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
+      "final_url": "https://ai-act-service-desk.ec.europa.eu/en/ai-act/timeline/timeline-implementation-eu-ai-act",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "EU Machinery policy page",
+      "url": "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en",
+      "final_url": "https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/machinery_en",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "Germany CBAM definitive regime",
+      "url": "https://www.dehst.de/EN/Topics/CBAM/CBAM-definitive-regime-2026/cbam-definitive-regime-2026_node.html",
+      "final_url": "https://www.dehst.de/EN/Topics/CBAM/CBAM-definitive-regime-2026/cbam-definitive-regime-2026_node.html",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "UK product marking by sector",
+      "url": "https://www.gov.uk/government/publications/product-regulations-by-sector-and-current-approaches-to-product-marking-ukca-and-ce-regimes",
+      "final_url": "https://www.gov.uk/government/publications/product-regulations-by-sector-and-current-approaches-to-product-marking-ukca-and-ce-regimes",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "UK product safety framework",
+      "url": "https://www.gov.uk/government/consultations/product-regulation-the-uks-new-product-safety-framework/the-uks-new-product-safety-framework",
+      "final_url": "https://www.gov.uk/government/consultations/product-regulation-the-uks-new-product-safety-framework/the-uks-new-product-safety-framework",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    },
+    {
+      "name": "China CCC implementation rules — April 2026",
+      "url": "https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/ssgz/art/2026/art_5261f654e02d45edaf0805fb268c9fc9.html",
+      "final_url": "https://www.cnca.gov.cn/hlwfw/ywzl/qzxcprz/ssgz/art/2026/art_5261f654e02d45edaf0805fb268c9fc9.html",
+      "http_status": 200,
+      "status": "available",
+      "checked_at": "2026-07-20T13:23:32Z"
+    }
+  ]
+}

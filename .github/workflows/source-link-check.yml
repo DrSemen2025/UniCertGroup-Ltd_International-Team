@@ -6,45 +6,28 @@ on:
     - cron: "15 7 * * 1"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   check-primary-sources:
     runs-on: ubuntu-latest
     steps:
-      - name: Check critical source links
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check official-source availability
+        run: python scripts/check_regulatory_sources.py
+      - name: Publish changed status snapshot
         shell: bash
         run: |
-          set -u
-
-          urls=(
-            "https://unicertgroup.com/"
-            "https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng"
-            "https://eur-lex.europa.eu/eli/dir/2024/2853/oj/eng"
-            "https://eur-lex.europa.eu/eli/reg/2023/1230/oj/eng"
-            "https://eur-lex.europa.eu/eli/reg/2025/2083/oj/eng"
-            "https://digital-strategy.ec.europa.eu/en/policies/cra-summary"
-            "https://www.enisa.europa.eu/topics/product-security-and-certification/single-reporting-platform-srp"
-            "https://taxation-customs.ec.europa.eu/carbon-border-adjustment-mechanism_en"
-            "https://www.consilium.europa.eu/en/press/press-releases/2026/06/29/artificial-intelligence-council-gives-final-green-light-to-simplify-and-streamline-rules/"
-          )
-
-          failed=0
-          for url in "${urls[@]}"; do
-            code="$(curl -L --retry 2 --connect-timeout 15 --max-time 60 -sS -o /dev/null -w "%{http_code}" "$url" || true)"
-            if [[ "$code" =~ ^(2|3) ]]; then
-              echo "OK  $code  $url"
-            elif [[ "$code" == "403" ]]; then
-              echo "WARN  403  $url — reachable, but automated access is blocked; review manually"
-            else
-              echo "FAIL  ${code:-000}  $url"
-              failed=1
-            fi
-          done
-
-          if [[ "$failed" -ne 0 ]]; then
-            echo "One or more primary-source links need manual review."
-            exit 1
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/regulatory-source-status.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Update regulatory source status [skip ci]"
+            git push
           fi
-
-          echo "Availability checks passed. Legal content still requires manual expert review."
+      - name: Flag unavailable sources
+        run: |
+          python -c 'import json; data=json.load(open("data/regulatory-source-status.json")); raise SystemExit(1 if data["summary"]["unavailable"] else 0)'
