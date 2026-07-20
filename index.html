@@ -321,6 +321,12 @@ nav{display:flex;align-items:center;gap:0.25rem;flex-wrap:wrap;}
 .tag-standard{background:rgba(201,168,76,0.12);color:var(--gold-light);border:1px solid rgba(201,168,76,0.2);}
 .tag-auth{background:rgba(46,196,182,0.1);color:var(--accent-teal);border:1px solid rgba(46,196,182,0.2);}
 .tag-norm{background:rgba(140,160,188,0.1);color:var(--steel-light);border:1px solid var(--border-steel);}
+.cert-type-link{display:inline-flex;align-items:center;gap:0.35rem;text-decoration:none;transition:all var(--transition);}
+.cert-type-link:hover,.cert-type-link:focus-visible{
+  color:var(--gold-light);border-color:rgba(201,168,76,0.45);
+  background:rgba(201,168,76,0.1);outline:none;
+}
+.cert-type-link .external-mark{font-size:0.68rem;line-height:1;opacity:0.8;}
 
 /* ============================================================ STANDARDS MATRIX */
 .standards-matrix{overflow-x:auto;}
@@ -1118,10 +1124,6 @@ footer{
         <p style="margin-top:0.85rem;font-size:0.76rem;color:var(--steel)" data-i18n="f_note">Response within 24 business hours. All information treated strictly confidential. The downloadable questionnaire (Sections A–H) is the instrument we use to scope and price an engagement — the form above only opens the conversation.</p>
       </div>
       <div>
-        <div class="card" style="margin-bottom:1.25rem;">
-          <h3 data-i18n="con_addr">Business Hours</h3>
-          <p style="font-size:0.78rem;color:var(--steel)" data-i18n="con_hours">Mon–Thu 09:00–18:00, Fri 09:00–17:00 (MSK)</p>
-        </div>
         <div class="card">
           <h3 data-i18n="con_process">Certification Process</h3>
           <div class="steps" id="process-steps"></div>
@@ -1269,7 +1271,6 @@ en: {
   fs_5:"CE Marking (EU)",fs_6:"EAC Marking (EAEU)",fs_7:"GOST-R Certificate / Declaration",
   fs_8:"GB / CCC China Certification",fs_9:"Technical Documentation Preparation",
   fs_10:"Industrial Consulting (Process Engineering)",
-  con_addr:"Business Hours",con_hours:"Mon–Thu 09:00–18:00, Fri 09:00–17:00 (MSK)",
   con_process:"Typical Certification Process",
   footer_desc:"International industrial certification services. EN, GOST-R, ATEX, ASME, ISO, GB, JIS — expert certification for industrial equipment, pressure vessels, and bulk solids handling systems worldwide.",
   footer_services:"Services",footer_regions:"Regions",footer_legal:"Legal",
@@ -1392,7 +1393,6 @@ de: {
   fs_5:"CE-Kennzeichnung (EU)",fs_6:"EAC-Kennzeichnung (EAEU)",fs_7:"GOST-R Zertifikat / Erklärung",
   fs_8:"GB / CCC China Zertifizierung",fs_9:"Technische Dokumentation",
   fs_10:"Industrieberatung (Verfahrenstechnik)",
-  con_addr:"Geschäftszeiten",con_hours:"Mo–Do 09:00–18:00, Fr 09:00–17:00 (MSK)",
   con_process:"Typischer Zertifizierungsprozess",
   footer_desc:"Internationale Industriezertifizierungsdienste. EN, GOST-R, ATEX, ASME, ISO, GB, JIS — Expertenzertifizierung für Industrieanlagen, Druckbehälter und Schüttguthandhabungssysteme weltweit.",
   footer_services:"Leistungen",footer_regions:"Regionen",footer_legal:"Rechtliches",
@@ -1515,7 +1515,6 @@ ru: {
   fs_5:"Маркировка CE (ЕС)",fs_6:"Маркировка EAC (ЕАЭС)",fs_7:"Сертификат/декларация ГОСТ-Р",
   fs_8:"Сертификация GB / CCC (Китай)",fs_9:"Подготовка технической документации",
   fs_10:"Промышленный консалтинг (технологические процессы)",
-  con_addr:"Часы работы",con_hours:"Пн–Чт 09:00–18:00, Пт 09:00–17:00 (МСК)",
   con_process:"Типовой процесс сертификации",
   footer_desc:"Международные услуги по промышленной сертификации. EN, ГОСТ-Р, ATEX, ASME, ISO, GB, JIS — экспертная сертификация промышленного оборудования, сосудов давления и систем транспортирования сыпучих материалов по всему миру.",
   footer_services:"Услуги",footer_regions:"Регионы",footer_legal:"Правовая информация",
@@ -1638,7 +1637,6 @@ zh: {
   fs_5:"CE标志（欧盟）",fs_6:"EAC标志（欧亚经济联盟）",fs_7:"GOST-R证书/声明",
   fs_8:"GB/CCC中国认证",fs_9:"技术文件准备",
   fs_10:"工业咨询（工艺工程）",
-  con_addr:"营业时间",con_hours:"周一至周四 09:00-18:00，周五 09:00-17:00（莫斯科时间）",
   con_process:"典型认证流程",
   footer_desc:"国际工业认证服务。EN、GOST-R、ATEX、ASME、ISO、GB、JIS——全球工业设备、压力容器和散装固体处理系统的专业认证。",
   footer_services:"服务项目",footer_regions:"覆盖区域",footer_legal:"法律信息",
@@ -2176,30 +2174,30 @@ const groupData = [
    STANDARDS REFERENCE DATA
    ============================================================ */
 const standardsData = [
-  {code:"EN 1991-4",title:"Actions on structures – Silos and tanks",body:"CEN / BSI / DIN",region:"European Union, UK, Switzerland, EEA",type:"Design / Load Standard"},
-  {code:"EN 1993-4-1",title:"Steel structures – Silos",body:"CEN / BSI",region:"EU, UK, EEA",type:"Design Standard"},
-  {code:"EN 1993-1-6",title:"Steel structures – Shell buckling",body:"CEN / BSI",region:"EU, UK, EEA",type:"Structural Verification"},
-  {code:"EN 13445-1/5",title:"Unfired pressure vessels – Design, fabrication, inspection",body:"CEN / BSI",region:"EU, UK, EEA (PED basis)",type:"Product Standard (PED)"},
-  {code:"AD 2000 Regelwerk",title:"German Pressure Vessel Code – Materials and design",body:"AD 2000 Gemeinschaft (VDTÜV)",region:"Germany, Austria, Switzerland (widely accepted)",type:"Design Code"},
-  {code:"ATEX 2014/34/EU",title:"Equipment and protective systems in explosive atmospheres",body:"European Commission",region:"European Union, UK (DSEAR)",type:"EU Directive / Safety"},
-  {code:"ASME Sec. VIII Div.1",title:"Rules for construction of pressure vessels",body:"ASME (USA)",region:"USA, Canada, Saudi Arabia, India (accepted), Latin America",type:"Construction Code"},
-  {code:"ASME Sec. VIII Div.2",title:"Alternative rules – pressure vessel design",body:"ASME (USA)",region:"USA, Canada, global (engineering critical)",type:"Construction Code"},
-  {code:"GOST R 52857",title:"Pressure vessels and apparatus – Norms and methods of strength calculation",body:"Rosstandart (Russia)",region:"Russia, CIS, EAEU",type:"Design Calculation Norm"},
-  {code:"TR TS 032/2013",title:"Technical Regulation on Safety of Pressure Equipment",body:"EEC (Eurasian Economic Commission)",region:"EAEU: Russia, Kazakhstan, Belarus, Armenia, Kyrgyzstan",type:"Technical Regulation (EAC)"},
-  {code:"TR CU 012/2011",title:"Safety of equipment for explosive atmospheres (ATEX equivalent)",body:"EEC",region:"EAEU",type:"Technical Regulation (EAC)"},
-  {code:"GB 150-1/4",title:"Pressure Vessels (design, fabrication, inspection)",body:"SAC / SAMR (China)",region:"China (mandatory special equipment)",type:"National Mandatory Standard"},
-  {code:"JIS B 8265",title:"Construction of pressure vessels – General principles",body:"JISC (Japan)",region:"Japan",type:"National Standard"},
-  {code:"IS 2825",title:"Code for unfired pressure vessels (Indian Standard)",body:"BIS (India)",region:"India",type:"National Standard"},
-  {code:"ISO 9001:2015",title:"Quality management systems – Requirements",body:"ISO",region:"Global (180+ countries)",type:"Management System"},
-  {code:"ISO 14001:2015",title:"Environmental management systems",body:"ISO",region:"Global",type:"Management System"},
-  {code:"ISO 45001:2018",title:"Occupational health and safety management systems",body:"ISO",region:"Global",type:"Management System"},
-  {code:"IECEx",title:"International explosion protection scheme for equipment",body:"IEC (International Electrotechnical Commission)",region:"Global mutual recognition scheme",type:"International Scheme"},
-  {code:"PED 2014/68/EU",title:"Pressure Equipment Directive – EU",body:"European Commission",region:"European Union",type:"EU Directive"},
-  {code:"NFPA 652/654",title:"Standard on combustible dusts / Standard for prevention of fire in bulk processing",body:"NFPA (USA)",region:"USA, global reference",type:"Fire/Safety Standard"},
-  {code:"API 650",title:"Welded tanks for oil storage",body:"API (American Petroleum Institute)",region:"Global (oil & gas)",type:"Industry Standard"},
-  {code:"CAN/CSA B51",title:"Boiler, pressure vessel, and pressure piping code",body:"CSA Group (Canada)",region:"Canada",type:"National Code"},
-  {code:"AS 1210",title:"Pressure vessels",body:"Standards Australia",region:"Australia, New Zealand",type:"National Standard"},
-  {code:"NR-13",title:"Caldeiras, Vasos de Pressão, Tubulações e Tanques Metálicos de Armazenamento",body:"MTE (Brazil)",region:"Brazil (mandatory)",type:"Regulatory Standard"},
+  {code:"EN 1991-4",title:"Actions on structures – Silos and tanks",body:"CEN / BSI / DIN",region:"European Union, UK, Switzerland, EEA",type:"Design / Load Standard",url:"https://eurocodes.jrc.ec.europa.eu/"},
+  {code:"EN 1993-4-1",title:"Steel structures – Silos",body:"CEN / BSI",region:"EU, UK, EEA",type:"Design Standard",url:"https://eurocodes.jrc.ec.europa.eu/"},
+  {code:"EN 1993-1-6",title:"Steel structures – Shell buckling",body:"CEN / BSI",region:"EU, UK, EEA",type:"Structural Verification",url:"https://eurocodes.jrc.ec.europa.eu/"},
+  {code:"EN 13445-1/5",title:"Unfired pressure vessels – Design, fabrication, inspection",body:"CEN / BSI",region:"EU, UK, EEA (PED basis)",type:"Product Standard (PED)",url:"https://standards.cencenelec.eu/"},
+  {code:"AD 2000 Regelwerk",title:"German Pressure Vessel Code – Materials and design",body:"AD 2000 Gemeinschaft (VDTÜV)",region:"Germany, Austria, Switzerland (widely accepted)",type:"Design Code",url:"https://ad2000.de"},
+  {code:"ATEX 2014/34/EU",title:"Equipment and protective systems in explosive atmospheres",body:"European Commission",region:"European Union, UK (DSEAR)",type:"EU Directive / Safety",url:"https://single-market-economy.ec.europa.eu/sectors/mechanical-engineering/equipment-potentially-explosive-atmospheres-atex_en"},
+  {code:"ASME Sec. VIII Div.1",title:"Rules for construction of pressure vessels",body:"ASME (USA)",region:"USA, Canada, Saudi Arabia, India (accepted), Latin America",type:"Construction Code",url:"https://www.asme.org/codes-standards/bpvc-standards/bpvc-2025"},
+  {code:"ASME Sec. VIII Div.2",title:"Alternative rules – pressure vessel design",body:"ASME (USA)",region:"USA, Canada, global (engineering critical)",type:"Construction Code",url:"https://www.asme.org/codes-standards/bpvc-standards/bpvc-2025"},
+  {code:"GOST R 52857",title:"Pressure vessels and apparatus – Norms and methods of strength calculation",body:"Rosstandart (Russia)",region:"Russia, CIS, EAEU",type:"Design Calculation Norm",url:"https://protect.gost.ru/"},
+  {code:"TR TS 032/2013",title:"Technical Regulation on Safety of Pressure Equipment",body:"EEC (Eurasian Economic Commission)",region:"EAEU: Russia, Kazakhstan, Belarus, Armenia, Kyrgyzstan",type:"Technical Regulation (EAC)",url:"https://eec.eaeunion.org/comission/department/deptexreg/tr/"},
+  {code:"TR CU 012/2011",title:"Safety of equipment for explosive atmospheres (ATEX equivalent)",body:"EEC",region:"EAEU",type:"Technical Regulation (EAC)",url:"https://eec.eaeunion.org/comission/department/deptexreg/tr/"},
+  {code:"GB 150-1/4",title:"Pressure Vessels (design, fabrication, inspection)",body:"SAC / SAMR (China)",region:"China (mandatory special equipment)",type:"National Mandatory Standard",url:"https://openstd.samr.gov.cn/"},
+  {code:"JIS B 8265",title:"Construction of pressure vessels – General principles",body:"JISC (Japan)",region:"Japan",type:"National Standard",url:"https://www.jisc.go.jp/eng/"},
+  {code:"IS 2825",title:"Code for unfired pressure vessels (Indian Standard)",body:"BIS (India)",region:"India",type:"National Standard",url:"https://www.bis.gov.in/standards/"},
+  {code:"ISO 9001:2015",title:"Quality management systems – Requirements",body:"ISO",region:"Global (180+ countries)",type:"Management System",url:"https://www.iso.org/standard/62085.html"},
+  {code:"ISO 14001:2015",title:"Environmental management systems",body:"ISO",region:"Global",type:"Management System",url:"https://www.iso.org/standard/60857.html"},
+  {code:"ISO 45001:2018",title:"Occupational health and safety management systems",body:"ISO",region:"Global",type:"Management System",url:"https://www.iso.org/standard/63787.html"},
+  {code:"IECEx",title:"International explosion protection scheme for equipment",body:"IEC (International Electrotechnical Commission)",region:"Global mutual recognition scheme",type:"International Scheme",url:"https://www.iecex.com/certified-equipment-scheme/overview/"},
+  {code:"PED 2014/68/EU",title:"Pressure Equipment Directive – EU",body:"European Commission",region:"European Union",type:"EU Directive",url:"https://single-market-economy.ec.europa.eu/sectors/pressure-equipment-and-gas-appliances/pressure-equipment-sector/pressure-equipment-directive_en"},
+  {code:"NFPA 652/654",title:"Standard on combustible dusts / Standard for prevention of fire in bulk processing",body:"NFPA (USA)",region:"USA, global reference",type:"Fire/Safety Standard",url:"https://www.nfpa.org/codes-and-standards/nfpa-660-standard-development/660"},
+  {code:"API 650",title:"Welded tanks for oil storage",body:"API (American Petroleum Institute)",region:"Global (oil & gas)",type:"Industry Standard",url:"https://www.api.org/products-and-services/standards/important-standards-announcements/standard650"},
+  {code:"CAN/CSA B51",title:"Boiler, pressure vessel, and pressure piping code",body:"CSA Group (Canada)",region:"Canada",type:"National Code",url:"https://www.csagroup.org/store/product/CSA%20B51:24/"},
+  {code:"AS 1210",title:"Pressure vessels",body:"Standards Australia",region:"Australia, New Zealand",type:"National Standard",url:"https://store.standards.org.au/"},
+  {code:"NR-13",title:"Caldeiras, Vasos de Pressão, Tubulações e Tanques Metálicos de Armazenamento",body:"MTE (Brazil)",region:"Brazil (mandatory)",type:"Regulatory Standard",url:"https://www.gov.br/trabalho-e-emprego/pt-br/acesso-a-informacao/participacao-social/conselhos-e-orgaos-colegiados/comissao-tripartite-partitaria-permanente/normas-regulamentadora/normas-regulamentadoras-vigentes/norma-regulamentadora-no-13-nr-13"},
 ];
 
 /* ============================================================
@@ -2622,7 +2620,11 @@ function renderStandards(){
       <td><span class="std-scope">${s.title}</span></td>
       <td><span class="std-body">${s.body}</span></td>
       <td style="font-size:0.78rem;color:var(--steel)">${s.region}</td>
-      <td><span class="tag tag-norm">${s.type}</span></td>
+      <td>
+        <a class="tag tag-norm cert-type-link" href="${s.url}" target="_blank" rel="noopener noreferrer" title="Official reference — ${s.code}">
+          ${s.type}<span class="external-mark" aria-hidden="true">↗</span>
+        </a>
+      </td>
     </tr>
   `).join("");
 }
