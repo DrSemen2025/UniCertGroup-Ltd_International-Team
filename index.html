@@ -644,6 +644,61 @@ footer{
   font-size:0.74rem;color:var(--gold);margin-top:0.75rem;
   display:inline-block;word-break:break-word;
 }
+.news-doc-header{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;
+  margin:0 0 1rem;padding-top:0.25rem;
+}
+.news-doc-header h3{font-size:1.35rem;margin:0.25rem 0 0;}
+.news-doc-live{
+  flex:0 0 auto;font-family:var(--font-mono);font-size:0.66rem;
+  letter-spacing:0.08em;text-transform:uppercase;color:var(--accent-teal);
+  border:1px solid rgba(46,196,182,0.35);border-radius:999px;
+  padding:0.35rem 0.65rem;background:rgba(46,196,182,0.06);
+}
+.news-doc-grid{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:1.25rem;margin-bottom:2.25rem;
+}
+.news-doc-card{
+  position:relative;overflow:hidden;padding:1.5rem;
+  background:linear-gradient(145deg,rgba(22,48,78,0.82),rgba(8,23,43,0.96));
+  border:1px solid rgba(201,168,76,0.28);border-radius:var(--radius-lg);
+  box-shadow:0 18px 45px rgba(0,0,0,0.18);transition:all var(--transition);
+}
+.news-doc-card::before{
+  content:"";position:absolute;inset:0 auto 0 0;width:3px;
+  background:linear-gradient(180deg,var(--gold),var(--accent-teal));
+}
+.news-doc-card:hover{transform:translateY(-3px);border-color:rgba(201,168,76,0.48);box-shadow:var(--shadow-deep);}
+.news-doc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1rem;}
+.news-doc-icon{font-size:1.8rem;line-height:1;}
+.news-doc-card h4{font-size:1.08rem;line-height:1.35;margin:0.45rem 0 0.65rem;}
+.news-doc-card > p{font-size:0.86rem;color:var(--text-muted);margin:0 0 1rem;}
+.news-doc-list{list-style:none;margin:0;padding:0;display:grid;gap:0.62rem;}
+.news-doc-list li{
+  position:relative;padding-left:1.1rem;font-size:0.8rem;line-height:1.55;color:var(--steel-light);
+}
+.news-doc-list li::before{content:"✓";position:absolute;left:0;color:var(--accent-teal);font-weight:700;}
+.news-doc-meta{
+  display:flex;align-items:center;justify-content:space-between;gap:0.75rem;
+  flex-wrap:wrap;margin-top:1.15rem;padding-top:0.9rem;border-top:1px solid var(--border-steel);
+}
+.news-doc-sources{display:flex;flex-wrap:wrap;gap:0.45rem;}
+.news-doc-sources a{
+  font-family:var(--font-mono);font-size:0.64rem;color:var(--gold);
+  border:1px solid rgba(201,168,76,0.2);border-radius:3px;padding:0.2rem 0.42rem;
+}
+.news-doc-verified{font-family:var(--font-mono);font-size:0.63rem;color:var(--steel);}
+.news-feed-label{
+  display:flex;align-items:center;gap:0.75rem;margin:0 0 1rem;
+  font-family:var(--font-mono);font-size:0.68rem;letter-spacing:0.1em;
+  text-transform:uppercase;color:var(--steel);
+}
+.news-feed-label::after{content:"";height:1px;flex:1;background:var(--border-steel);}
+@media(max-width:780px){
+  .news-doc-grid{grid-template-columns:1fr;}
+  .news-doc-header{align-items:flex-start;flex-direction:column;}
+}
 .rd-strip{
   display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
   gap:1rem;margin-bottom:2.2rem;
@@ -860,6 +915,15 @@ footer{
         <span data-i18n="news_refresh">Refresh</span>
       </button>
     </div>
+    <div class="news-doc-header">
+      <div>
+        <div class="section-tag" data-i18n="news_doc_tag">Documentation Compliance</div>
+        <h3 data-i18n="news_doc_h3">The 2026&ndash;2028 Regulatory Window</h3>
+      </div>
+      <span class="news-doc-live" data-i18n="news_doc_live">Source-checked &middot; deadline-aware</span>
+    </div>
+    <div class="news-doc-grid" id="news-doc-grid"></div>
+    <div class="news-feed-label" data-i18n="news_other">Other regulatory updates</div>
     <div class="grid-4" id="news-grid"></div>
   </div>
 </section>
@@ -1189,6 +1253,8 @@ en: {
   std_intro:"Authoritative reference matrix for industrial equipment, bulk solids, pressure vessels, and management systems — with scope, issuing body, and applicable regions.",
   std_th_code:"Standard Code",std_th_title:"Title & Scope",std_th_body:"Issuing Body",std_th_region:"Applicable Region",std_th_cert:"Cert Type",
   news_tag:"Regulatory Updates",news_h2:"Latest Certification News",news_refresh:"Refresh",
+  news_doc_tag:"Documentation Compliance",news_doc_h3:"The 2026–2028 Regulatory Window",
+  news_doc_live:"Source-checked · deadline-aware",news_other:"Other regulatory updates",
   src_tag:"Data Sources & Compliance",src_h2:"Official Reference Sources",
   src_intro:"All certification data is sourced exclusively from official regulatory bodies, standards organisations, and government portals.",
   con_tag:"Certification Request",con_h2:"Start Your Certification Project",
@@ -1310,6 +1376,8 @@ de: {
   std_intro:"Maßgebliche Referenzmatrix für Industrieanlagen, Schüttgut, Druckbehälter und Managementsysteme — mit Anwendungsbereich, herausgebender Organisation und anwendbaren Regionen.",
   std_th_code:"Normbezeichnung",std_th_title:"Titel & Anwendungsbereich",std_th_body:"Normungsgremium",std_th_region:"Anwendungsregion",std_th_cert:"Zertifizierungstyp",
   news_tag:"Regulatorische Updates",news_h2:"Aktuelle Zertifizierungsnews",news_refresh:"Aktualisieren",
+  news_doc_tag:"Dokumentations-Compliance",news_doc_h3:"Das regulatorische Zeitfenster 2026–2028",
+  news_doc_live:"Quellengeprüft · fristengesteuert",news_other:"Weitere regulatorische Updates",
   src_tag:"Datenquellen & Compliance",src_h2:"Offizielle Referenzquellen",
   src_intro:"Alle Zertifizierungsdaten stammen ausschließlich aus offiziellen Regulierungsbehörden, Normungsorganisationen und Regierungsportalen.",
   con_tag:"Zertifizierungsanfrage",con_h2:"Starten Sie Ihr Zertifizierungsprojekt",
@@ -1431,6 +1499,8 @@ ru: {
   std_intro:"Авторитетная матрица ссылок на стандарты промышленного оборудования, сыпучих материалов, сосудов давления и систем менеджмента.",
   std_th_code:"Обозначение стандарта",std_th_title:"Название и область применения",std_th_body:"Орган стандартизации",std_th_region:"Применимый регион",std_th_cert:"Тип сертификации",
   news_tag:"Регуляторные обновления",news_h2:"Последние новости сертификации",news_refresh:"Обновить",
+  news_doc_tag:"Соответствие документации",news_doc_h3:"Регуляторное окно 2026–2028",
+  news_doc_live:"Проверено по источникам · с учётом сроков",news_other:"Другие регуляторные обновления",
   src_tag:"Источники данных и соответствие",src_h2:"Официальные источники",
   src_intro:"Все данные по сертификации получены исключительно из официальных регуляторных органов, организаций по стандартизации и государственных порталов.",
   con_tag:"Запрос на сертификацию",con_h2:"Начните ваш сертификационный проект",
@@ -1552,6 +1622,8 @@ zh: {
   std_intro:"工业设备、散装固体、压力容器和管理体系的权威参考矩阵——含适用范围、发布机构和适用地区。",
   std_th_code:"标准编号",std_th_title:"标题与适用范围",std_th_body:"发布机构",std_th_region:"适用区域",std_th_cert:"认证类型",
   news_tag:"法规动态",news_h2:"最新认证资讯",news_refresh:"刷新",
+  news_doc_tag:"文档合规",news_doc_h3:"2026–2028 法规窗口期",
+  news_doc_live:"一手来源核实 · 动态期限",news_other:"其他法规更新",
   src_tag:"数据来源与合规",src_h2:"官方参考来源",
   src_intro:"所有认证数据均来自官方监管机构、标准化组织和政府门户网站。",
   con_tag:"认证申请",con_h2:"启动您的认证项目",
@@ -2136,6 +2208,81 @@ const standardsData = [
    ============================================================ */
 const SOURCES_VERIFIED = "2026-07-13";
 
+const documentationWindowData = [
+  {
+    id:"doc-evidence-2026", icon:"🧭", tag:"2026 / Evidence Control",
+    deadline:"2026-09-11", status:"imminent", verified:"2026-07-20",
+    titleEN:"2026: Incident-ready documentation and disclosure evidence",
+    titleDE:"2026: Vorfallsichere Dokumentation und Offenlegungsnachweise",
+    titleRU:"2026: Документация для инцидентов и раскрытия доказательств",
+    titleZH:"2026：面向事件报告与证据披露的文档体系",
+    bodyEN:"Treat documentation as an operational control, not a filing exercise. The CRA reporting duty starts on 11 September 2026; the revised product-liability regime applies to products placed on the market or put into service after 8 December 2026.",
+    bodyDE:"Dokumentation ist als betriebliche Kontrolle zu führen, nicht als Ablageübung. Die CRA-Meldepflicht beginnt am 11. September 2026; das neue Produkthaftungsregime gilt für Produkte, die nach dem 8. Dezember 2026 in Verkehr gebracht oder in Betrieb genommen werden.",
+    bodyRU:"Документация должна быть рабочим механизмом контроля, а не архивной формальностью. Обязанность CRA по уведомлению действует с 11 сентября 2026 года; новый режим ответственности применяется к продукции, выпущенной на рынок или введённой в эксплуатацию после 8 декабря 2026 года.",
+    bodyZH:"文档应作为持续运行的控制机制，而非归档形式。CRA 报告义务自 2026 年 9 月 11 日起适用；新版产品责任制度适用于 2026 年 12 月 8 日之后投放市场或投入使用的产品。",
+    actionsEN:[
+      "Maintain a controlled product, software-version and EU-market inventory with the responsible economic operator and CSIRT routing recorded.",
+      "Pre-approve 24-hour early-warning, 72-hour notification and final-report templates, including decision logs and evidence preservation.",
+      "Link design, test, change, complaint and post-market records so relevant evidence can be disclosed without losing traceability or trade-secret controls."
+    ],
+    actionsDE:[
+      "Gelenktes Produkt-, Softwareversions- und EU-Marktregister mit verantwortlichem Wirtschaftsakteur und dokumentiertem CSIRT-Meldeweg führen.",
+      "Vorlagen für 24-Stunden-Frühwarnung, 72-Stunden-Meldung und Abschlussbericht einschließlich Entscheidungsprotokoll und Beweissicherung vorab freigeben.",
+      "Konstruktions-, Prüf-, Änderungs-, Reklamations- und Marktbeobachtungsnachweise so verknüpfen, dass relevante Beweise nachvollziehbar und unter Schutz von Geschäftsgeheimnissen offengelegt werden können."
+    ],
+    actionsRU:[
+      "Вести управляемый реестр продукции, версий ПО и рынков ЕС с указанием ответственного экономического оператора и маршрута уведомления CSIRT.",
+      "Заранее утвердить шаблоны предупреждения за 24 часа, уведомления за 72 часа и итогового отчёта, включая журнал решений и сохранение доказательств.",
+      "Связать записи о проектировании, испытаниях, изменениях, рекламациях и послепродажном мониторинге с сохранением прослеживаемости и защиты коммерческой тайны."
+    ],
+    actionsZH:[
+      "建立受控的产品、软件版本与欧盟市场清单，并记录责任经济运营者及 CSIRT 报告路径。",
+      "预先批准 24 小时预警、72 小时通知及最终报告模板，同时保留决策日志与证据。",
+      "关联设计、测试、变更、投诉及上市后记录，在保护商业秘密的同时保持证据可追溯性。"
+    ],
+    sources:[
+      {label:"EC · CRA reporting",url:"https://digital-strategy.ec.europa.eu/en/policies/cra-reporting"},
+      {label:"EUR-Lex · Dir. 2024/2853",url:"https://eur-lex.europa.eu/eli/dir/2024/2853/2024-11-18/eng"}
+    ]
+  },
+  {
+    id:"doc-digital-2027-28", icon:"🗂️", tag:"2027–2028 / Digital Technical File",
+    deadline:"2027-01-20", status:"upcoming", verified:"2026-07-20",
+    titleEN:"2027–2028: One controlled dossier for machinery and cybersecurity",
+    titleDE:"2027–2028: Ein gelenktes Dossier für Maschinen- und Cybersicherheit",
+    titleRU:"2027–2028: Единое управляемое досье по машинам и кибербезопасности",
+    titleZH:"2027–2028：机械与网络安全统一受控技术档案",
+    bodyEN:"Build a version-controlled digital technical file before the Machinery Regulation applies on 20 January 2027, then extend it for full CRA application on 11 December 2027 and documented certificate-transition decisions through 11 June 2028.",
+    bodyDE:"Vor Geltung der Maschinenverordnung am 20. Januar 2027 ist eine versionsgelenkte digitale technische Akte aufzubauen. Sie wird für die CRA-Vollanwendung am 11. Dezember 2027 und dokumentierte Übergangsentscheidungen zu Zertifikaten bis 11. Juni 2028 erweitert.",
+    bodyRU:"До начала применения Регламента по машинам 20 января 2027 года создайте версионно управляемый цифровой технический файл, затем расширьте его к полному применению CRA 11 декабря 2027 года и фиксируйте переходные решения по сертификатам до 11 июня 2028 года.",
+    bodyZH:"在机械法规于 2027 年 1 月 20 日适用前建立版本受控的数字技术档案，并在 2027 年 12 月 11 日 CRA 全面适用前扩展，同时记录至 2028 年 6 月 11 日的证书过渡决策。",
+    actionsEN:[
+      "Map each Annex III safety requirement to risk assessment, calculations, drawings, test evidence, standards edition and conformity route; retain the technical file and EU declaration for at least 10 years.",
+      "Keep digital instructions printable, downloadable and available for the expected product lifetime and at least 10 years; preserve the paper-on-request process and model/language controls.",
+      "Add CRA Annex VII evidence: compliance-relevant software versions, cyber-risk assessment, SBOM, vulnerability policy, secure-update method, verification reports and support-period records."
+    ],
+    actionsDE:[
+      "Jede Sicherheitsanforderung aus Anhang III mit Risikobeurteilung, Berechnung, Zeichnung, Prüfnachweis, Normenausgabe und Konformitätsweg verknüpfen; technische Akte und EU-Erklärung mindestens zehn Jahre aufbewahren.",
+      "Digitale Anleitungen druck- und herunterladbar für die erwartete Produktlebensdauer und mindestens zehn Jahre bereitstellen; Papierausgabe auf Anfrage sowie Modell- und Sprachlenkung absichern.",
+      "CRA-Nachweise nach Anhang VII ergänzen: compliance-relevante Softwarestände, Cyber-Risikobeurteilung, SBOM, Schwachstellenrichtlinie, sichere Updates, Prüfberichte und Supportzeitraum-Aufzeichnungen."
+    ],
+    actionsRU:[
+      "Связать каждое требование безопасности Приложения III с оценкой рисков, расчётами, чертежами, испытаниями, редакцией стандарта и маршрутом оценки соответствия; хранить технический файл и декларацию ЕС не менее 10 лет.",
+      "Обеспечить печать, скачивание и доступность цифровых инструкций в течение ожидаемого срока службы и не менее 10 лет; сохранить процесс выдачи бумажной версии и контроль модели и языка.",
+      "Добавить доказательства по Приложению VII CRA: версии ПО, оценку киберрисков, SBOM, политику уязвимостей, безопасные обновления, отчёты проверок и записи периода поддержки."
+    ],
+    actionsZH:[
+      "将附件 III 的每项安全要求映射至风险评估、计算、图纸、测试证据、标准版本及合格评定路径；技术档案和欧盟符合性声明至少保存 10 年。",
+      "确保数字说明书可打印、可下载，并在预期产品寿命期且至少 10 年内在线可用；保留按要求提供纸质版本及型号和语言控制流程。",
+      "补充 CRA 附件 VII 证据：影响合规的软件版本、网络风险评估、SBOM、漏洞政策、安全更新方法、验证报告及支持期记录。"
+    ],
+    sources:[
+      {label:"EUR-Lex · Reg. 2023/1230",url:"https://eur-lex.europa.eu/eli/reg/2023/1230/en"},
+      {label:"EUR-Lex · Reg. 2024/2847",url:"https://eur-lex.europa.eu/eli/reg/2024/2847/oj/eng"}
+    ]
+  }
+];
+
 const newsData = [
   {
     id:"cra-report", icon:"\u26A0\uFE0F", tag:"EU / CRA", date:"2026-09-11",
@@ -2349,6 +2496,7 @@ function setLang(lang){
   renderCountries();
   renderGroups();
   renderStandards();
+  renderDocumentationWindow();
   renderNews();
   renderReadiness();
   renderSources();
@@ -2482,6 +2630,39 @@ function renderStandards(){
 /* ============================================================
    RENDER NEWS
    ============================================================ */
+function renderDocumentationWindow(){
+  const grid = document.getElementById("news-doc-grid");
+  if(!grid) return;
+  const suffix = currentLang==="ru"?"RU":currentLang==="de"?"DE":currentLang==="zh"?"ZH":"EN";
+  const loc = currentLang==="zh"?"zh-CN":currentLang==="ru"?"ru-RU":currentLang==="de"?"de-DE":"en-GB";
+
+  grid.innerHTML = documentationWindowData.map(function(n){
+    const title = n["title" + suffix] || n.titleEN;
+    const body = n["body" + suffix] || n.bodyEN;
+    const actions = n["actions" + suffix] || n.actionsEN;
+    const cd = countdownLabel(n);
+    const checked = new Date(n.verified + "T00:00:00").toLocaleDateString(loc,{year:"numeric",month:"short",day:"numeric"});
+    const sources = n.sources.map(function(source){
+      return '<a href="' + source.url + '" target="_blank" rel="noopener noreferrer">' + source.label + ' ↗</a>';
+    }).join("");
+
+    return ''
+      + '<article class="news-doc-card">'
+      +   '<div class="news-doc-top">'
+      +     '<div><span class="news-tag">' + n.tag + '</span><h4>' + title + '</h4></div>'
+      +     '<span class="news-doc-icon" aria-hidden="true">' + n.icon + '</span>'
+      +   '</div>'
+      +   '<div class="news-count ' + cd.cls + '">' + cd.text + '</div>'
+      +   '<p>' + body + '</p>'
+      +   '<ul class="news-doc-list">' + actions.map(function(action){ return '<li>' + action + '</li>'; }).join("") + '</ul>'
+      +   '<div class="news-doc-meta">'
+      +     '<div class="news-doc-sources">' + sources + '</div>'
+      +     '<span class="news-doc-verified">✓ ' + t("news_verified") + ' ' + checked + '</span>'
+      +   '</div>'
+      + '</article>';
+  }).join("");
+}
+
 function renderNews(){
   const grid = document.getElementById("news-grid");
   if(!grid) return;
@@ -2679,6 +2860,7 @@ function refreshNews(){
   var btn  = document.getElementById("news-refresh-btn");
   var icon = document.getElementById("refresh-icon");
   var grid = document.getElementById("news-grid");
+  var docGrid = document.getElementById("news-doc-grid");
   if(!btn || !grid) return;
 
   if(icon){
@@ -2688,14 +2870,20 @@ function refreshNews(){
   btn.disabled = true; btn.style.opacity = "0.5";
   grid.style.transition = "opacity 0.25s";
   grid.style.opacity = "0.35";
+  if(docGrid){
+    docGrid.style.transition = "opacity 0.25s";
+    docGrid.style.opacity = "0.35";
+  }
 
   setTimeout(function(){
     /* Re-derive every countdown from today's date and re-rank by urgency.
        No data is invented and no order is randomised: the same source items
        are simply re-evaluated against the current date. */
+    renderDocumentationWindow();
     renderNews();
     renderReadiness();
     grid.style.opacity = "1";
+    if(docGrid) docGrid.style.opacity = "1";
 
     var now  = new Date();
     var loc  = currentLang==="zh"?"zh-CN":currentLang==="ru"?"ru-RU":currentLang==="de"?"de-DE":"en-GB";
@@ -2963,6 +3151,7 @@ document.addEventListener("DOMContentLoaded",()=>{
   renderCountries();
   renderGroups();
   renderStandards();
+  renderDocumentationWindow();
   renderNews();
   renderReadiness();
   renderSources();
